@@ -1,4 +1,5 @@
 class Calculadora {
+  
   sumar(a, b) {
     return a + b;
   }
@@ -20,12 +21,18 @@ class Calculadora {
   }
 }
 
-// Ejemplo de uso
-/*const calculadora = new Calculadora();
+const calculadora = new Calculadora();
+
+module.exports = Calculadora;
+
+
+
+//Ejemplo de uso
+/* 
 
 console.log(calculadora.sumar(10, 5));        // 15
 console.log(calculadora.restar(10, 5));       // 5
 console.log(calculadora.multiplicar(10, 5));  // 50
 console.log(calculadora.dividir(10, 5));      // 2
 console.log(calculadora.dividir(10, 0));      // Error
-*/
+ */

@@ -1,9 +1,11 @@
+ const Calculadora = require("./Calculadora");
+
 // calculadora.router.js
 const express = require("express");
 
 const router = express.Router();
 
-class Calculadora {
+/* class Calculadora {
   sumar(a, b) {
     return a + b;
   }
@@ -23,10 +25,11 @@ class Calculadora {
 
     return a / b;
   }
-}
+} */
 
 const calculadora = new Calculadora();
 
+ 
 router.get("/sumar/:a/:b", (req, res) => {
   const a = Number(req.params.a);
   const b = Number(req.params.b);
