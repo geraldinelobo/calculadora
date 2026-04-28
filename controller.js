@@ -25,12 +25,26 @@ function calcular(req, res) {
             return res.status(400).json({ error: 'Operación no válida' });
     }
 
-    res.json({ 
+    //crear objeto para guardar
+    const nuevoCalculo = new Calculo(
+        Date.now(),
+        a,
+        b,
         operacion,
-        resultado 
+        resultado,
+        new Date()
+    );
+
+    console.log("operacion guardada: ", nuevoCalculo);
+
+    res.json({ 
+        mensaje: "Operación realizada y guardad con éxito",
+        operacion,
+        resultado,
+        datosGuardados: nuevoCalculo 
     });
 }
 
 module.exports = {
     calcular
-};
+}; 

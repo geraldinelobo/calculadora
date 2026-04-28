@@ -1,4 +1,4 @@
- const Calculadora = require("./Calculadora");
+const Calculadora = require("./Calculadora");
 
 // calculadora.router.js
 const express = require("express");
@@ -29,7 +29,41 @@ const router = express.Router();
 
 const calculadora = new Calculadora();
 
- 
+function calcular(req, res) {
+  const a = Number(req.params.a);
+  const b = Number(req.params.b);
+  const operacion = req.params.operacion;
+  let resultado;
+  let operacionNombre;
+
+  switch (operacion) {
+    case "sumar":
+      resultado = calculadora.sumar(a, b);
+      operacionNombre = "sumar";
+      break;
+    case "restar":
+      resultado = calculadora.restar(a, b);
+      operacionNombre = "restar";
+      break;
+    case "multiplicar":
+      resultado = calculadora.multiplicar(a, b);
+      operacionNombre = "multiplicar";
+      break;
+    case "dividir":
+      resultado = calculadora.dividir(a, b);
+      operacionNombre = "dividir";
+      break;
+    default:
+      return res.status(400).json({ error: "Operación no válida" });
+  }
+
+  res.json({
+    operacion: operacionNombre,
+    resultado,
+  });
+}
+
+router.get("/:a/:b/:operacion", calcular);
 router.get("/sumar/:a/:b", (req, res) => {
   const a = Number(req.params.a);
   const b = Number(req.params.b);
