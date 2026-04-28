@@ -24,33 +24,66 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Calculadora</h1>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md">
+        <h1 className="text-3xl font-bold text-center mb-6">
+          Calculadora
+        </h1>
 
-      <input
-        type="number"
-        placeholder="Primer número"
-        value={num1}
-        onChange={(e) => setNum1(e.target.value)}
-      />
+        <div className="space-y-4">
+          <input
+            type="number"
+            placeholder="Primer número"
+            value={num1}
+            onChange={(e) => setNum1(e.target.value)}
+            className="w-full border rounded-xl p-3 text-lg outline-none"
+          />
 
-      <br /><br />
+          <input
+            type="number"
+            placeholder="Segundo número"
+            value={num2}
+            onChange={(e) => setNum2(e.target.value)}
+            className="w-full border rounded-xl p-3 text-lg outline-none"
+          />
+        </div>
 
-      <input
-        type="number"
-        placeholder="Segundo número"
-        value={num2}
-        onChange={(e) => setNum2(e.target.value)}
-      />
+        <div className="grid grid-cols-2 gap-3 mt-6">
+          <button
+            onClick={() => calcular("sumar")}
+            className="p-3 rounded-xl shadow border"
+          >
+            Sumar
+          </button>
 
-      <br /><br />
+          <button
+            onClick={() => calcular("restar")}
+            className="p-3 rounded-xl shadow border"
+          >
+            Restar
+          </button>
 
-      <button onClick={() => calcular("sumar")}>Sumar</button>
-      <button onClick={() => calcular("restar")}>Restar</button>
-      <button onClick={() => calcular("multiplicar")}>Multiplicar</button>
-      <button onClick={() => calcular("dividir")}>Dividir</button>
+          <button
+            onClick={() => calcular("multiplicar")}
+            className="p-3 rounded-xl shadow border"
+          >
+            Multiplicar
+          </button>
 
-      <h2>Resultado: {resultado}</h2>
+          <button
+            onClick={() => calcular("dividir")}
+            className="p-3 rounded-xl shadow border"
+          >
+            Dividir
+          </button>
+        </div>
+
+        <div className="mt-8 text-center">
+          <h2 className="text-xl font-semibold">
+            Resultado: {resultado}
+          </h2>
+        </div>
+      </div>
     </div>
   );
 }
